@@ -21,6 +21,8 @@ from api1.views import JobViewSet
 
 from api2.views import CompanyViewSets
 
+from api3.views import UniversityViewSet
+
 router=routers.SimpleRouter()
 
 
@@ -28,11 +30,13 @@ router.register('job',JobViewSet,basename='job')
 
 router.register('company',CompanyViewSets,basename='company')
 
+router.register('university',UniversityViewSet,basename='university')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('api-auth/', include('rest_framework.urls')),
     
-    path('api/',include(router.urls))
+    path('api/',include(router.urls)),
 ]
